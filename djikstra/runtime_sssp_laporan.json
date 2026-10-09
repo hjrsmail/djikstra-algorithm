@@ -1,0 +1,546 @@
+{
+  "environment": {
+    "python": "3.12.14",
+    "os": "Linux-6.18.44-x86_64-with-glibc2.39",
+    "processor": "x86_64",
+    "cpu": "AMD EPYC 9V74 80-Core Processor",
+    "memory": "MemTotal:       10206508 kB"
+  },
+  "tests": [
+    {
+      "case": "Lima simpul",
+      "passed": true,
+      "distance": "[0, 4, 2, 5, 7]",
+      "path": "[0, 2, 3, 4]"
+    },
+    {
+      "case": "Jalur tidak langsung",
+      "passed": true,
+      "distance": "[0, 2, 5]",
+      "path": "[0, 1, 2]"
+    },
+    {
+      "case": "Simpul terpisah",
+      "passed": true,
+      "distance": "[0, 2, 5, inf]",
+      "path": "[]"
+    },
+    {
+      "case": "Bobot nol",
+      "passed": true,
+      "distance": "[0, 0, 2]",
+      "path": "[0, 1, 2]"
+    }
+  ],
+  "rows": [
+    {
+      "n": 100,
+      "m": 300,
+      "algorithm": "Dijkstra linear",
+      "mean_ms": 0.2925804,
+      "std_ms": 0.02166464881552434
+    },
+    {
+      "n": 100,
+      "m": 300,
+      "algorithm": "Bellman-Ford early stop",
+      "mean_ms": 0.2010066,
+      "std_ms": 0.0077994756426313675
+    },
+    {
+      "n": 200,
+      "m": 600,
+      "algorithm": "Dijkstra linear",
+      "mean_ms": 1.2582316,
+      "std_ms": 0.08750437733793669
+    },
+    {
+      "n": 200,
+      "m": 600,
+      "algorithm": "Bellman-Ford early stop",
+      "mean_ms": 0.4541514,
+      "std_ms": 0.05385998913200782
+    },
+    {
+      "n": 400,
+      "m": 1200,
+      "algorithm": "Dijkstra linear",
+      "mean_ms": 4.1574586,
+      "std_ms": 0.14863241437620536
+    },
+    {
+      "n": 400,
+      "m": 1200,
+      "algorithm": "Bellman-Ford early stop",
+      "mean_ms": 1.2756498,
+      "std_ms": 0.07297569059419717
+    },
+    {
+      "n": 800,
+      "m": 2400,
+      "algorithm": "Dijkstra linear",
+      "mean_ms": 20.2290724,
+      "std_ms": 0.6514139172038007
+    },
+    {
+      "n": 800,
+      "m": 2400,
+      "algorithm": "Bellman-Ford early stop",
+      "mean_ms": 2.9532104,
+      "std_ms": 0.1786449272266077
+    },
+    {
+      "n": 1600,
+      "m": 4800,
+      "algorithm": "Dijkstra linear",
+      "mean_ms": 70.6271876,
+      "std_ms": 1.4189485981718295
+    },
+    {
+      "n": 1600,
+      "m": 4800,
+      "algorithm": "Bellman-Ford early stop",
+      "mean_ms": 8.1062376,
+      "std_ms": 0.7872332595141669
+    }
+  ],
+  "raw": [
+    {
+      "n": 100,
+      "m": 300,
+      "algorithm": "Dijkstra linear",
+      "run": 1,
+      "ms": 0.284338
+    },
+    {
+      "n": 100,
+      "m": 300,
+      "algorithm": "Dijkstra linear",
+      "run": 2,
+      "ms": 0.320242
+    },
+    {
+      "n": 100,
+      "m": 300,
+      "algorithm": "Dijkstra linear",
+      "run": 3,
+      "ms": 0.307572
+    },
+    {
+      "n": 100,
+      "m": 300,
+      "algorithm": "Dijkstra linear",
+      "run": 4,
+      "ms": 0.264709
+    },
+    {
+      "n": 100,
+      "m": 300,
+      "algorithm": "Dijkstra linear",
+      "run": 5,
+      "ms": 0.286041
+    },
+    {
+      "n": 100,
+      "m": 300,
+      "algorithm": "Bellman-Ford early stop",
+      "run": 1,
+      "ms": 0.197447
+    },
+    {
+      "n": 100,
+      "m": 300,
+      "algorithm": "Bellman-Ford early stop",
+      "run": 2,
+      "ms": 0.214893
+    },
+    {
+      "n": 100,
+      "m": 300,
+      "algorithm": "Bellman-Ford early stop",
+      "run": 3,
+      "ms": 0.197528
+    },
+    {
+      "n": 100,
+      "m": 300,
+      "algorithm": "Bellman-Ford early stop",
+      "run": 4,
+      "ms": 0.196516
+    },
+    {
+      "n": 100,
+      "m": 300,
+      "algorithm": "Bellman-Ford early stop",
+      "run": 5,
+      "ms": 0.198649
+    },
+    {
+      "n": 200,
+      "m": 600,
+      "algorithm": "Dijkstra linear",
+      "run": 1,
+      "ms": 1.246606
+    },
+    {
+      "n": 200,
+      "m": 600,
+      "algorithm": "Dijkstra linear",
+      "run": 2,
+      "ms": 1.384905
+    },
+    {
+      "n": 200,
+      "m": 600,
+      "algorithm": "Dijkstra linear",
+      "run": 3,
+      "ms": 1.25583
+    },
+    {
+      "n": 200,
+      "m": 600,
+      "algorithm": "Dijkstra linear",
+      "run": 4,
+      "ms": 1.265534
+    },
+    {
+      "n": 200,
+      "m": 600,
+      "algorithm": "Dijkstra linear",
+      "run": 5,
+      "ms": 1.138283
+    },
+    {
+      "n": 200,
+      "m": 600,
+      "algorithm": "Bellman-Ford early stop",
+      "run": 1,
+      "ms": 0.488094
+    },
+    {
+      "n": 200,
+      "m": 600,
+      "algorithm": "Bellman-Ford early stop",
+      "run": 2,
+      "ms": 0.397248
+    },
+    {
+      "n": 200,
+      "m": 600,
+      "algorithm": "Bellman-Ford early stop",
+      "run": 3,
+      "ms": 0.468525
+    },
+    {
+      "n": 200,
+      "m": 600,
+      "algorithm": "Bellman-Ford early stop",
+      "run": 4,
+      "ms": 0.399411
+    },
+    {
+      "n": 200,
+      "m": 600,
+      "algorithm": "Bellman-Ford early stop",
+      "run": 5,
+      "ms": 0.517479
+    },
+    {
+      "n": 400,
+      "m": 1200,
+      "algorithm": "Dijkstra linear",
+      "run": 1,
+      "ms": 3.954361
+    },
+    {
+      "n": 400,
+      "m": 1200,
+      "algorithm": "Dijkstra linear",
+      "run": 2,
+      "ms": 4.313201
+    },
+    {
+      "n": 400,
+      "m": 1200,
+      "algorithm": "Dijkstra linear",
+      "run": 3,
+      "ms": 4.14591
+    },
+    {
+      "n": 400,
+      "m": 1200,
+      "algorithm": "Dijkstra linear",
+      "run": 4,
+      "ms": 4.289365
+    },
+    {
+      "n": 400,
+      "m": 1200,
+      "algorithm": "Dijkstra linear",
+      "run": 5,
+      "ms": 4.084456
+    },
+    {
+      "n": 400,
+      "m": 1200,
+      "algorithm": "Bellman-Ford early stop",
+      "run": 1,
+      "ms": 1.271754
+    },
+    {
+      "n": 400,
+      "m": 1200,
+      "algorithm": "Bellman-Ford early stop",
+      "run": 2,
+      "ms": 1.324544
+    },
+    {
+      "n": 400,
+      "m": 1200,
+      "algorithm": "Bellman-Ford early stop",
+      "run": 3,
+      "ms": 1.165243
+    },
+    {
+      "n": 400,
+      "m": 1200,
+      "algorithm": "Bellman-Ford early stop",
+      "run": 4,
+      "ms": 1.356141
+    },
+    {
+      "n": 400,
+      "m": 1200,
+      "algorithm": "Bellman-Ford early stop",
+      "run": 5,
+      "ms": 1.260567
+    },
+    {
+      "n": 800,
+      "m": 2400,
+      "algorithm": "Dijkstra linear",
+      "run": 1,
+      "ms": 21.11654
+    },
+    {
+      "n": 800,
+      "m": 2400,
+      "algorithm": "Dijkstra linear",
+      "run": 2,
+      "ms": 19.382701
+    },
+    {
+      "n": 800,
+      "m": 2400,
+      "algorithm": "Dijkstra linear",
+      "run": 3,
+      "ms": 20.243045
+    },
+    {
+      "n": 800,
+      "m": 2400,
+      "algorithm": "Dijkstra linear",
+      "run": 4,
+      "ms": 19.891937
+    },
+    {
+      "n": 800,
+      "m": 2400,
+      "algorithm": "Dijkstra linear",
+      "run": 5,
+      "ms": 20.511139
+    },
+    {
+      "n": 800,
+      "m": 2400,
+      "algorithm": "Bellman-Ford early stop",
+      "run": 1,
+      "ms": 3.174517
+    },
+    {
+      "n": 800,
+      "m": 2400,
+      "algorithm": "Bellman-Ford early stop",
+      "run": 2,
+      "ms": 2.797289
+    },
+    {
+      "n": 800,
+      "m": 2400,
+      "algorithm": "Bellman-Ford early stop",
+      "run": 3,
+      "ms": 2.837901
+    },
+    {
+      "n": 800,
+      "m": 2400,
+      "algorithm": "Bellman-Ford early stop",
+      "run": 4,
+      "ms": 2.83706
+    },
+    {
+      "n": 800,
+      "m": 2400,
+      "algorithm": "Bellman-Ford early stop",
+      "run": 5,
+      "ms": 3.119285
+    },
+    {
+      "n": 1600,
+      "m": 4800,
+      "algorithm": "Dijkstra linear",
+      "run": 1,
+      "ms": 71.220274
+    },
+    {
+      "n": 1600,
+      "m": 4800,
+      "algorithm": "Dijkstra linear",
+      "run": 2,
+      "ms": 70.665139
+    },
+    {
+      "n": 1600,
+      "m": 4800,
+      "algorithm": "Dijkstra linear",
+      "run": 3,
+      "ms": 69.104911
+    },
+    {
+      "n": 1600,
+      "m": 4800,
+      "algorithm": "Dijkstra linear",
+      "run": 4,
+      "ms": 72.651729
+    },
+    {
+      "n": 1600,
+      "m": 4800,
+      "algorithm": "Dijkstra linear",
+      "run": 5,
+      "ms": 69.493885
+    },
+    {
+      "n": 1600,
+      "m": 4800,
+      "algorithm": "Bellman-Ford early stop",
+      "run": 1,
+      "ms": 7.99319
+    },
+    {
+      "n": 1600,
+      "m": 4800,
+      "algorithm": "Bellman-Ford early stop",
+      "run": 2,
+      "ms": 7.70139
+    },
+    {
+      "n": 1600,
+      "m": 4800,
+      "algorithm": "Bellman-Ford early stop",
+      "run": 3,
+      "ms": 7.655311
+    },
+    {
+      "n": 1600,
+      "m": 4800,
+      "algorithm": "Bellman-Ford early stop",
+      "run": 4,
+      "ms": 7.68798
+    },
+    {
+      "n": 1600,
+      "m": 4800,
+      "algorithm": "Bellman-Ford early stop",
+      "run": 5,
+      "ms": 9.493317
+    }
+  ],
+  "trace": [
+    [
+      0,
+      [
+        0,
+        4,
+        2,
+        Infinity,
+        Infinity
+      ],
+      [
+        null,
+        0,
+        0,
+        null,
+        null
+      ]
+    ],
+    [
+      2,
+      [
+        0,
+        4,
+        2,
+        5,
+        9
+      ],
+      [
+        null,
+        0,
+        0,
+        2,
+        2
+      ]
+    ],
+    [
+      1,
+      [
+        0,
+        4,
+        2,
+        5,
+        9
+      ],
+      [
+        null,
+        0,
+        0,
+        2,
+        2
+      ]
+    ],
+    [
+      3,
+      [
+        0,
+        4,
+        2,
+        5,
+        7
+      ],
+      [
+        null,
+        0,
+        0,
+        2,
+        3
+      ]
+    ],
+    [
+      4,
+      [
+        0,
+        4,
+        2,
+        5,
+        7
+      ],
+      [
+        null,
+        0,
+        0,
+        2,
+        3
+      ]
+    ]
+  ]
+}
