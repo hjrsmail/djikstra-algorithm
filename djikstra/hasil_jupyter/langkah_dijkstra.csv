@@ -1,0 +1,8 @@
+Simpul dipilih,Rektorat,Perpustakaan,Laboratorium,Kantin,Kelas,Parkiran
+Awal,0,inf,inf,inf,inf,inf
+Rektorat,0,400.0,500.0,200.0,inf,inf
+Kantin,0,400.0,500.0,200.0,500.0,800.0
+Perpustakaan,0,400.0,500.0,200.0,500.0,800.0
+Laboratorium,0,400.0,500.0,200.0,500.0,800.0
+Kelas,0,400.0,500.0,200.0,500.0,700.0
+Parkiran,0,400.0,500.0,200.0,500.0,700.0
