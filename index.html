@@ -5,7 +5,7 @@
 <head>
     <meta charset="utf-8" />
     <meta content="width=device-width,initial-scale=1" name="viewport" />
-    <title>Jalur — Presentasi Algoritma Dijkstra</title>
+    <title>Algoritma Dijkstra - Hijir Ismail</title>
     <meta
         content="Presentasi Dijkstra dengan simulasi langkah program, studi kasus kampus, kompleksitas, dan pembanding Bellman–Ford serta A*."
         name="description" />
@@ -1862,45 +1862,136 @@
                     <h3>Program kampus yang dapat dijalankan</h3>
                     <details>
                         <summary>Buka kode Python lengkap dan singkat</summary>
-                        <pre class="full-code">from math import inf
+                        <pre class="full-code"># Nilai tak hingga: menandai jarak yang belum diketahui.
+inf = float("inf")
+
 
 def dijkstra(graf, sumber, tujuan):
+    # Jumlah simpul dalam graf.
     n = len(graf)
+
+    # d[v] menyimpan biaya terbaik dari sumber menuju simpul v.
+    # Awalnya seluruh jarak dianggap tak hingga.
     d = [inf] * n
+
+    # prev[v] menyimpan simpul pendahulu v pada rute terbaik.
+    # None berarti belum mempunyai pendahulu.
     prev = [None] * n
+
+    # done[v] menunjukkan apakah jarak simpul v sudah final.
     done = [False] * n
+
+    # Jarak dari sumber ke dirinya sendiri adalah 0.
     d[sumber] = 0
+
+    # Maksimal n putaran karena setiap putaran memfinalkan satu simpul.
+    # "_" berarti nomor putarannya tidak digunakan.
     for _ in range(n):
+        # Belum ada simpul yang dipilih pada putaran ini.
         u = None
+
+        # Cari simpul belum final dengan jarak terkecil.
         for v in range(n):
-            if not done[v] and (u is None or d[v] &lt; d[u]):
+            # Pilih v jika:
+            # 1. v belum final, DAN
+            # 2. belum ada kandidat u, ATAU jarak v lebih kecil.
+            #
+            # Saat u masih None, Python tidak mengevaluasi d[u].
+            if not done[v] and (u is None or d[v] < d[u]):
                 u = v
+
+        # Berhenti jika tidak ada simpul tersisa,
+        # atau semua simpul tersisa tidak terjangkau dari sumber.
         if u is None or d[u] == inf:
             break
+
+        # Jarak u sudah final.
+        # Keputusan ini aman jika semua bobot non-negatif.
         done[u] = True
+
+        # Jika tujuan sudah final, pencarian satu tujuan selesai.
+        # Bukan berhenti saat tujuan pertama kali ditemukan.
         if u == tujuan:
             break
+
+        # Periksa seluruh tetangga dari simpul u.
+        # v = indeks tetangga; w = bobot ruas u menuju v.
         for v, w in graf[u]:
-            if not done[v] and d[u] + w &lt; d[v]:
+            # RELAKSASI:
+            # Jika v belum final dan perjalanan melalui u lebih murah,
+            # perbarui biaya menuju v.
+            if not done[v] and d[u] + w < d[v]:
+                # Simpan biaya baru yang lebih kecil.
                 d[v] = d[u] + w
+
+                # Catat bahwa rute terbaik menuju v melewati u.
                 prev[v] = u
+
+    # Setelah pencarian, susun rute dari tujuan ke sumber.
     rute, v = [], tujuan
+
+    # Susun rute hanya jika tujuan terjangkau.
+    # Jika tidak terjangkau, rute tetap kosong.
     while v is not None and d[tujuan] != inf:
+        # Masukkan simpul yang sedang ditelusuri.
         rute.append(v)
+
+        # Jika sudah sampai sumber, penelusuran selesai.
         if v == sumber:
             break
+
+        # Bergerak ke pendahulu simpul saat ini.
         v = prev[v]
+
+    # Rute saat ini tersusun tujuan → sumber.
+    # [::-1] membaliknya menjadi sumber → tujuan.
+    # Fungsi mengembalikan biaya tujuan dan list indeks rute.
     return d[tujuan], rute[::-1]
 
-nama = ["Rektorat", "Perpustakaan", "Laboratorium",
-        "Kantin", "Kelas", "Parkiran"]
+
+# Nama lokasi; posisi dalam list merupakan indeks simpul:
+# 0=Rektorat, 1=Perpustakaan, 2=Laboratorium,
+# 3=Kantin, 4=Kelas, 5=Parkiran.
+nama = [
+    "Rektorat",
+    "Perpustakaan",
+    "Laboratorium",
+    "Kantin",
+    "Kelas",
+    "Parkiran"
+]
+
+# Buat satu list tetangga kosong untuk setiap lokasi.
+# Hasil awal: [[], [], [], [], [], []]
 graf = [[] for _ in nama]
-for u, v, w in [(0,1,400),(1,2,300),(0,2,500),(0,3,200),
-                 (3,4,300),(2,4,400),(3,5,600),(4,5,200)]:
+
+# Setiap data berbentuk (simpul asal, simpul tujuan, bobot).
+# Contoh (0, 1, 400): Rektorat–Perpustakaan berjarak 400.
+for u, v, w in [
+    (0, 1, 400),
+    (1, 2, 300),
+    (0, 2, 500),
+    (0, 3, 200),
+    (3, 4, 300),
+    (2, 4, 400),
+    (3, 5, 600),
+    (4, 5, 200)
+]:
+    # Tambahkan hubungan dari u menuju v.
     graf[u].append((v, w))
+
+    # Tambahkan hubungan balik karena graf tidak berarah.
     graf[v].append((u, w))
+
+# Jalankan Dijkstra dari Rektorat (0) ke Parkiran (5).
+# Terima dua keluaran: biaya minimum dan list indeks rute.
 jarak, rute = dijkstra(graf, 0, 5)
+
+# Ubah indeks rute menjadi nama lokasi,
+# lalu gabungkan menggunakan tanda panah.
 print("Rute:", " → ".join(nama[v] for v in rute))
+
+# Tampilkan biaya minimum menuju Parkiran.
 print("Jarak:", jarak, "meter ilustratif")
 </pre>
                     </details>
